@@ -1,0 +1,124 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block title %} Add Reservation {% endblock title %} {% block content %}
+<!-- Banner Area Starts -->
+    <section class="banner-area banner-area2 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1><i> {{ restaurant_detail.name }}</i></h1>
+                    <p class="pt-2"><i> {{ restaurant_detail.description }}.</i></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+	
+	
+<div class="container">
+  <h3 class="heading font-weight-light text-center">Add Reservation</h3>
+</div>
+<!-- <div class="container w-25 card p-4 mt-4">
+ <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %} {{form|crispy}}
+    <input
+      type="submit"
+      value="Add Dish"
+      class="btn btn-info px-5"
+      style="color: black; background-color: cadetblue!important;
+    width: 100%;"
+    />
+  </form>-->
+  
+  
+  <!--<form action="{% url 'create_reservation' restaurant_detail.id %}" method="post" class="form-horizontal">
+  {% csrf_token %}
+	<div class="form-group">
+		<label for="control-label col-sm-2">Date: </label>
+		<input name="booking_for_date" id="booking_for_date" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="control-label col-sm-2">Guests: </label>
+		<input name="guests" id="guests" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="control-label col-sm-2">Time: </label>
+		<input name="time" id="time" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="control-label col-sm-2">booked_name: </label>
+		<input name="booked_name" id="booked_name" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="control-label col-sm-2">booked_email: </label>
+		<input name="booked_email" id="booked_email" class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="control-label col-sm-2">booked_phone: </label>
+		<input name="booked_phone" id="booked_phone" class="form-control">
+	</div>
+	<button type="submit" class="btn btn-primary">Add Reservation</button>
+</form>
+</div>-->
+
+<!-- Table Area Starts -->
+    <section class="table-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-top2 text-center">
+                        <h3>Book <span>your</span> table</h3>
+                        <p><i>Beast kind form divide night above let moveth bearing darkness.</i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <form action="{% url 'create_reservation' restaurant_detail.id %}" method="post">
+						{% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <input type="text" id="datepicker" placeholder="Booking on" name="booking_for_date" autocomplete="off">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                            </div>
+                            <input type="text" id="datepicker2" placeholder="Time" name="time" id="time" autocomplete="off">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                            </div>
+                            <input type="text" placeholder="No.of Guests" name="guests" id="guests" autocomplete="off">
+                        </div>
+						
+						<div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                            </div>
+                            <input type="text" placeholder="Booked by name" name="booked_name" id="booked_name">
+                        </div>
+						<div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                            </div>
+                            <input type="text" placeholder="Email" name="booked_email" id="booked_email">
+                        </div>
+						<div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                            </div>
+                            <input type="text" placeholder="Phone" name="booked_phone" id="booked_phone">
+                        </div>
+                        <div class="table-btn text-center">
+							<button type="submit" class="template-btn template-btn2 mt-4">Book a table</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Table Area End -->
+
+{% endblock content %}
